@@ -1,183 +1,159 @@
-// Aguarda página carregar completamente
 window.addEventListener('load', function() {
-    console.log('✅ Página carregada!');
+    console.log(' Script carregado!');
     
-    // Banco de dados das estruturas
+    var infoContainer = document.getElementById('infoContainer');
+    console.log('📦 Container:', infoContainer);
+    
+    if (!infoContainer) {
+        alert('ERRO: Não encontrei o infoContainer!');
+        return;
+    }
+    
+    var cards = document.querySelectorAll('.legend-card');
+    console.log('📦 Cards encontrados:', cards.length);
+    
     var structuresData = {
         'cornea': {
             title: 'Córnea',
             icon: '👁️',
             color: '#b8d4e3',
-            description: 'A córnea é a camada transparente e curva que forma a parte frontal do olho. É composta por cinco camadas de tecido e não possui vasos sanguíneos.',
-            function: 'Refratar (desviar) os raios de luz que entram no olho. É responsável por cerca de 2/3 do poder de foco total do olho.'
+            description: 'A córnea é a camada transparente e curva que forma a parte frontal do olho.',
+            function: 'Refratar os raios de luz. Responsável por 2/3 do poder de foco do olho.'
         },
         'iris': {
             title: 'Íris',
             icon: '🎨',
             color: '#6b8e23',
-            description: 'A íris é a estrutura circular e colorida do olho, localizada entre a córnea e o cristalino. É composta por tecido muscular e pigmentado.',
-            function: 'Controlar o tamanho da pupila e regular a quantidade de luz que entra no olho. Funciona como o diafragma de uma câmera fotográfica.'
+            description: 'A íris é a parte colorida do olho, localizada entre a córnea e o cristalino.',
+            function: 'Controlar o tamanho da pupila e regular a quantidade de luz que entra.'
         },
         'pupila': {
             title: 'Pupila',
-            icon: '⚫',
+            icon: '',
             color: '#000000',
-            description: 'A pupila é a abertura circular preta no centro da íris. É um orifício que permite a passagem da luz para o interior do olho.',
-            function: 'Permitir a entrada de luz no olho e controlar a quantidade de radiação luminosa que atinge a retina.'
+            description: 'A pupila é a abertura circular preta no centro da íris.',
+            function: 'Permitir a entrada de luz no olho e controlar a quantidade que atinge a retina.'
         },
         'cristalino': {
             title: 'Cristalino',
             icon: '🔍',
             color: '#e8f4f8',
-            description: 'O cristalino é uma lente biconvexa, transparente e flexível, localizada imediatamente atrás da íris e da pupila.',
-            function: 'Focalizar a imagem na retina através do processo de acomodação visual, mudando de forma para focar em diferentes distâncias.'
+            description: 'O cristalino é uma lente transparente e flexível atrás da íris.',
+            function: 'Focalizar a imagem na retina, mudando de forma para focar em diferentes distâncias.'
         },
         'humor-aquoso': {
             title: 'Humor Aquoso',
             icon: '💧',
             color: '#e0f0ff',
-            description: 'O humor aquoso é um líquido transparente que preenche a câmara anterior do olho (entre a córnea e o cristalino).',
-            function: 'Manter a forma da parte frontal do olho, nutrir a córnea e o cristalino, e manter a pressão intraocular adequada.'
+            description: 'Líquido transparente que preenche a câmara anterior do olho.',
+            function: 'Manter a forma frontal do olho e nutrir a córnea e cristalino.'
         },
         'humor-vitreo': {
             title: 'Humor Vítreo',
             icon: '💎',
             color: '#f0f8ff',
-            description: 'O humor vítreo é um gel transparente que preenche aproximadamente 80% do volume do globo ocular (entre o cristalino e a retina).',
-            function: 'Manter a forma esférica do globo ocular, amortecer impactos físicos e manter a retina pressionada contra a parede posterior.'
+            description: 'Gel transparente que preenche 80% do globo ocular.',
+            function: 'Manter a forma do olho e amortecer impactos.'
         },
         'retina': {
             title: 'Retina',
             icon: '',
             color: '#8b4513',
-            description: 'A retina é a camada interna do olho, sensível à luz, composta por milhões de células fotorreceptoras (cones e bastonetes).',
-            function: 'Captar a imagem formada pela luz e convertê-la em impulsos elétricos nervosos que serão enviados ao cérebro.'
+            description: 'Camada interna sensível à luz com milhões de células fotorreceptoras.',
+            function: 'Captar a imagem e converter em impulsos elétricos para o cérebro.'
         },
         'coroide': {
             title: 'Coroide',
             icon: '🩸',
             color: '#2c1810',
-            description: 'A coroide é uma camada vascular rica em vasos sanguíneos, localizada entre a esclera e a retina.',
-            function: 'Nutrir a retina externa através de sua rica vascularização e absorver o excesso de luz para evitar reflexos internos.'
+            description: 'Camada vascular entre a esclera e a retina.',
+            function: 'Nutrir a retina e absorver o excesso de luz.'
         },
         'esclera': {
             title: 'Esclera',
             icon: '️',
             color: '#f4e4c1',
-            description: 'A esclera é a camada externa branca, fibrosa e resistente do olho, conhecida como "branco dos olhos".',
-            function: 'Proteger as estruturas internas do olho, manter a forma esférica do globo ocular e servir como ponto de inserção para os músculos.'
+            description: 'Camada externa branca e resistente do olho.',
+            function: 'Proteger as estruturas internas e manter a forma do olho.'
         },
         'nervo-optico': {
             title: 'Nervo Óptico',
             icon: '🔌',
             color: '#f5deb3',
-            description: 'O nervo óptico é um feixe com aproximadamente 1 milhão de fibras nervosas que se origina na retina e conecta ao cérebro.',
-            function: 'Transmitir os impulsos nervosos visuais da retina até o cérebro, onde serão processados e interpretados como imagens.'
+            description: 'Feixe com 1 milhão de fibras nervosas que conecta a retina ao cérebro.',
+            function: 'Transmitir os impulsos visuais da retina até o cérebro.'
         },
         'fovea': {
             title: 'Fóvea',
             icon: '🎯',
             color: '#ffd700',
-            description: 'A fóvea é uma pequena depressão na região central da retina, com alta concentração de cones (cerca de 200.000 por mm²).',
-            function: 'Proporcionar a máxima acuidade visual (visão detalhada e nítida) para ler, reconhecer rostos e ver detalhes finos.'
+            description: 'Pequena depressão na retina com alta concentração de cones.',
+            function: 'Proporcionar visão detalhada e nítida.'
         },
         'musculos-ciliares': {
             title: 'Músculos Ciliares',
             icon: '💪',
             color: '#8b4513',
-            description: 'Os músculos ciliares são fibras musculares lisas que formam o corpo ciliar, localizado atrás da íris.',
-            function: 'Controlar a acomodação visual ao contrair-se ou relaxar, mudando a forma do cristalino para focar em diferentes distâncias.'
+            description: 'Fibras musculares que formam o corpo ciliar.',
+            function: 'Controlar o foco mudando a forma do cristalino.'
         }
     };
-
-    // Encontra elementos
-    var infoContainer = document.getElementById('infoContainer');
-    var cards = document.querySelectorAll('.legend-card');
     
-    console.log('📦 infoContainer:', infoContainer);
-    console.log('📦 Cards encontrados:', cards.length);
-    
-    if (!infoContainer) {
-        console.error('❌ ERRO: infoContainer não existe!');
-        return;
-    }
-    
-    if (cards.length === 0) {
-        console.error('❌ ERRO: Nenhum card encontrado!');
-        return;
-    }
-    
-    // Função para mostrar informação
-    function showInfo(structureKey) {
-        console.log('👆 Clicou em:', structureKey);
-        
-        var data = structuresData[structureKey];
+    function showInfo(key) {
+        console.log('Clicou em:', key);
+        var data = structuresData[key];
         
         if (!data) {
-            console.error('❌ Dados não encontrados para:', structureKey);
+            console.error('Dados não encontrados para:', key);
             return;
         }
         
-        console.log('✅ Dados encontrados:', data.title);
-        
         // Remove active de todos
-        for (var i = 0; i < cards.length; i++) {
-            cards[i].classList.remove('active');
-        }
+        cards.forEach(function(card) {
+            card.classList.remove('active');
+        });
         
-        // Adiciona active no atual
-        var activeCard = document.querySelector('[data-structure="' + structureKey + '"]');
+        // Adiciona active no clicado
+        var activeCard = document.querySelector('[data-structure="' + key + '"]');
         if (activeCard) {
             activeCard.classList.add('active');
         }
         
-        // Cria HTML
-        var html = '<div class="info-content">';
-        html += '<div class="info-header">';
-        html += '<div class="info-icon" style="background-color: ' + data.color + '20; border: 3px solid ' + data.color + '">';
-        html += '<span style="font-size: 2em;">' + data.icon + '</span>';
+        // Cria o HTML
+        var html = '<div class="info-content" style="animation: slideIn 0.5s ease;">';
+        html += '<div class="info-header" style="display: flex; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #667eea;">';
+        html += '<div style="width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; margin-right: 20px; background-color: ' + data.color + '30; border: 3px solid ' + data.color + ';">';
+        html += data.icon;
         html += '</div>';
-        html += '<h2 class="info-title">' + data.title + '</h2>';
-        html += '</div>';
-        
-        html += '<div class="info-description">';
-        html += '<h4>O que é?</h4>';
-        html += '<p>' + data.description + '</p>';
+        html += '<h2 style="color: #667eea; font-size: 2.2em; margin: 0;">' + data.title + '</h2>';
         html += '</div>';
         
-        html += '<div class="info-function">';
-        html += '<h4>🎯 Função Principal</h4>';
-        html += '<p>' + data.function + '</p>';
+        html += '<div style="background: #ffffff; padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">';
+        html += '<h4 style="color: #495057; font-size: 1.3em; margin-bottom: 12px; font-weight: 700;">O que é?</h4>';
+        html += '<p style="color: #6c757d; font-size: 1.05em; line-height: 1.9;">' + data.description + '</p>';
         html += '</div>';
         
+        html += '<div style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #764ba2; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">';
+        html += '<h4 style="color: #764ba2; font-size: 1.3em; margin-bottom: 12px; font-weight: 700;">🎯 Função Principal</h4>';
+        html += '<p style="color: #495057; font-size: 1.05em; line-height: 1.9;">' + data.function + '</p>';
+        html += '</div>';
         html += '</div>';
         
-        // Atualiza container
+        // ATUALIZA O CONTAINER
         infoContainer.innerHTML = html;
-        console.log('✅ Informação atualizada com sucesso!');
+        console.log('✅ Informação atualizada!');
     }
     
-    // Adiciona clique em cada card
-    for (var i = 0; i < cards.length; i++) {
-        (function(index) {
-            var card = cards[index];
-            var structureKey = card.getAttribute('data-structure');
-            
-            console.log('📌 Card', index, ':', structureKey);
-            
-            card.addEventListener('click', function() {
-                console.log('🖱️ Clique detectado!');
-                showInfo(structureKey);
-            });
-            
-            card.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    showInfo(structureKey);
-                }
-            });
-        })(i);
-    }
+    // Adiciona eventos
+    cards.forEach(function(card) {
+        var key = card.getAttribute('data-structure');
+        console.log('Card:', key);
+        
+        card.addEventListener('click', function() {
+            console.log('🖱️ Clique!');
+            showInfo(key);
+        });
+    });
     
-    console.log('✅ Sistema inicializado com sucesso!');
+    console.log('✅ Tudo pronto!');
 });
-<script src="script.js"></script>
