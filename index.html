@@ -4,210 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Óptica da Visão – Estrutura do Olho Humano</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden; /* PREVINE ROLAGEM HORIZONTAL INDESEJADA */
-        }
-
-        .container {
-            max-width: 1400px;
-            width: 100%; /* GARANTE QUE O CONTÊINER NÃO ULTRAPASSE A TELA */
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px 40px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .main-diagram {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .eye-svg {
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
-        }
-
-        .light-diagram {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            border: 2px solid #e9ecef;
-        }
-
-        .light-diagram h2 {
-            color: #495057;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.5em;
-        }
-
-        .light-svg {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .structure-info {
-            position: fixed;
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            max-width: 90vw; /* AJUSTE PARA TELAS PEQUENAS */
-            width: max-content;
-            z-index: 1000;
-            display: none;
-            border-left: 4px solid #667eea;
-            word-wrap: break-word; /* EVITA QUE TEXTO LONGO VAZE */
-        }
-
-        .structure-info h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        .structure-info p {
-            color: #495057;
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-
-        .legend {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 15px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .legend-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-
-        .legend-text {
-            font-size: 0.95em;
-            color: #495057;
-        }
-
-        .legend-text strong {
-            color: #212529;
-        }
-
-        .label-line {
-            stroke: #495057;
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .label-text {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 14px;
-            fill: #212529;
-            font-weight: 600;
-        }
-
-        .structure-path {
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .structure-path:hover {
-            opacity: 0.8;
-        }
-
-        .light-ray {
-            animation: lightPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes lightPulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        /* AJUSTES ESPECÍFICOS PARA CELULARES E TELAS PEQUENAS */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            header {
-                padding: 20px;
-            }
-            header h1 {
-                font-size: 1.5em;
-            }
-            .content {
-                padding: 15px;
-            }
-            .legend {
-                grid-template-columns: 1fr;
-                padding: 15px;
-            }
-            .label-text {
-                font-size: 12px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -219,7 +16,6 @@
         <div class="content">
             <div class="main-diagram">
                 <svg class="eye-svg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Fundo do olho -->
                     <defs>
                         <radialGradient id="eyeGradient" cx="50%" cy="50%" r="50%">
                             <stop offset="0%" style="stop-color:#f4e4c1;stop-opacity:1" />
@@ -235,72 +31,39 @@
                         </radialGradient>
                     </defs>
 
-                    <!-- Esclera (camada externa branca) -->
                     <ellipse cx="600" cy="400" rx="380" ry="320" fill="url(#eyeGradient)" stroke="#8b7355" stroke-width="3" class="structure-path" data-structure="esclera"/>
-                    
-                    <!-- Coroide (camada média) -->
                     <ellipse cx="600" cy="400" rx="360" ry="300" fill="#2c1810" class="structure-path" data-structure="coroide"/>
-                    
-                    <!-- Retina -->
                     <ellipse cx="600" cy="400" rx="340" ry="280" fill="#8b4513" class="structure-path" data-structure="retina"/>
-                    
-                    <!-- Humor vítreo -->
                     <ellipse cx="600" cy="400" rx="320" ry="260" fill="#f0f8ff" opacity="0.3" class="structure-path" data-structure="humor-vitreo"/>
-                    
-                    <!-- Cristalino -->
                     <ellipse cx="450" cy="400" rx="60" ry="120" fill="url(#lensGradient)" stroke="#a0c4e8" stroke-width="2" class="structure-path" data-structure="cristalino"/>
-                    
-                    <!-- Córnea -->
                     <path d="M 220 280 Q 150 400 220 520" fill="url(#corneaGradient)" stroke="#a0c4e8" stroke-width="2" class="structure-path" data-structure="cornea"/>
-                    
-                    <!-- Íris -->
                     <path d="M 230 300 Q 200 400 230 500" fill="#4a6741" stroke="#2d4027" stroke-width="2" class="structure-path" data-structure="iris"/>
                     <path d="M 230 300 Q 200 400 230 500" fill="#6b8e23" opacity="0.7" class="structure-path" data-structure="iris"/>
-                    
-                    <!-- Pupila -->
                     <ellipse cx="220" cy="400" rx="40" ry="80" fill="#000000" class="structure-path" data-structure="pupila"/>
-                    
-                    <!-- Humor aquoso -->
                     <path d="M 220 280 Q 150 400 220 520 L 230 500 Q 200 400 230 300 Z" fill="#e0f0ff" opacity="0.5" class="structure-path" data-structure="humor-aquoso"/>
-                    
-                    <!-- Músculos ciliares -->
                     <path d="M 390 280 L 410 250 M 390 520 L 410 550" stroke="#8b4513" stroke-width="4" class="structure-path" data-structure="musculos-ciliares"/>
                     <path d="M 390 280 Q 400 400 390 520" fill="none" stroke="#8b4513" stroke-width="6" class="structure-path" data-structure="musculos-ciliares"/>
-                    
-                    <!-- Fóvea -->
                     <circle cx="920" cy="400" r="15" fill="#ffd700" opacity="0.8" class="structure-path" data-structure="fovea"/>
-                    
-                    <!-- Nervo óptico -->
                     <path d="M 960 380 L 1100 360 L 1100 440 L 960 420 Z" fill="#f5deb3" stroke="#d2b48c" stroke-width="2" class="structure-path" data-structure="nervo-optico"/>
 
-                    <!-- Linhas e textos de legenda -->
                     <line x1="150" y1="280" x2="80" y2="240" class="label-line"/>
                     <text x="50" y="240" class="label-text">Córnea</text>
-                    
                     <line x1="200" y1="300" x2="120" y2="210" class="label-line"/>
                     <text x="120" y="210" class="label-text">Íris</text>
-                    
                     <line x1="220" y1="400" x2="80" y2="310" class="label-line"/>
                     <text x="80" y="310" class="label-text">Pupila</text>
-                    
                     <line x1="390" y1="400" x2="150" y2="210" class="label-line"/>
                     <text x="150" y="210" class="label-text">Cristalino</text>
-                    
                     <line x1="300" y1="400" x2="80" y2="540" class="label-line"/>
                     <text x="80" y="540" class="label-text">Humor aquoso</text>
-                    
                     <line x1="600" y1="400" x2="600" y2="650" class="label-line"/>
                     <text x="600" y="680" class="label-text" text-anchor="middle">Humor vítreo</text>
-                    
                     <line x1="900" y1="300" x2="900" y2="150" class="label-line"/>
                     <text x="900" y="130" class="label-text" text-anchor="middle">Retina</text>
-                    
                     <line x1="920" y1="400" x2="1050" y2="300" class="label-line"/>
                     <text x="1050" y="290" class="label-text">Fóvea</text>
-                    
                     <line x1="1000" y1="400" x2="1100" y2="320" class="label-line"/>
                     <text x="1100" y="310" class="label-text">Nervo óptico</text>
-                    
                     <line x1="400" y1="280" x2="400" y2="150" class="label-line"/>
                     <text x="400" y="130" class="label-text" text-anchor="middle">Músculos ciliares</text>
                 </svg>
@@ -309,36 +72,27 @@
             <div class="light-diagram">
                 <h2>Formação da Imagem na Retina</h2>
                 <svg class="light-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Olho simplificado -->
                     <ellipse cx="400" cy="200" rx="200" ry="150" fill="#f4e4c1" stroke="#8b7355" stroke-width="2"/>
                     <ellipse cx="400" cy="200" rx="180" ry="130" fill="#8b4513"/>
                     <ellipse cx="400" cy="200" rx="160" ry="110" fill="#f0f8ff" opacity="0.3"/>
                     <ellipse cx="280" cy="200" rx="30" ry="60" fill="#e8f4f8" stroke="#a0c4e8" stroke-width="2"/>
                     <circle cx="250" cy="200" r="20" fill="#000000"/>
                     
-                    <!-- Raios de luz -->
                     <line x1="50" y1="100" x2="280" y2="180" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
                     <line x1="50" y1="300" x2="280" y2="220" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
-                    
-                    <!-- Refração no cristalino -->
                     <line x1="280" y1="180" x2="400" y2="230" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
-                    <line x1="280" y2="220" x2="400" y2="170" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
-                    
-                    <!-- Formação da imagem invertida -->
+                    <line x1="280" y1="220" x2="400" y2="170" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
                     <line x1="400" y1="230" x2="560" y2="240" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
                     <line x1="400" y1="170" x2="560" y2="160" stroke="#ff6b6b" stroke-width="3" class="light-ray"/>
                     
-                    <!-- Objeto -->
                     <polygon points="50,100 30,100 40,60" fill="#4ecdc4"/>
                     <line x1="40" y1="100" x2="40" y2="300" stroke="#4ecdc4" stroke-width="4"/>
                     <polygon points="50,300 30,300 40,340" fill="#4ecdc4"/>
                     
-                    <!-- Imagem invertida -->
                     <polygon points="560,240 570,240 565,260" fill="#ff6b6b"/>
                     <line x1="565" y1="240" x2="565" y2="160" stroke="#ff6b6b" stroke-width="2"/>
                     <polygon points="560,160 570,160 565,140" fill="#ff6b6b"/>
                     
-                    <!-- Textos -->
                     <text x="40" y="40" fill="#2c3e50" font-size="16" font-weight="bold">Objeto</text>
                     <text x="550" y="130" fill="#e74c3c" font-size="16" font-weight="bold">Imagem invertida</text>
                     <text x="400" y="380" fill="#2c3e50" font-size="16" font-weight="bold" text-anchor="middle">Cristalino</text>
@@ -398,86 +152,11 @@
         </div>
     </div>
 
-    <!-- Caixa de Informação Flutuante -->
     <div class="structure-info">
         <h3></h3>
         <p></p>
     </div>
 
-    <script>
-        // Dados das estruturas
-        const structures = {
-            'cornea': { title: 'Córnea', text: 'Camada transparente frontal que refrata a luz.' },
-            'iris': { title: 'Íris', text: 'Controla o tamanho da pupila e a entrada de luz.' },
-            'pupila': { title: 'Pupila', text: 'Abertura que permite a passagem da luz.' },
-            'cristalino': { title: 'Cristalino', text: 'Lente que focaliza a imagem na retina.' },
-            'humor-aquoso': { title: 'Humor aquoso', text: 'Líquido que mantém a forma da parte frontal do olho.' },
-            'humor-vitreo': { title: 'Humor vítreo', text: 'Gel transparente que preenche o globo ocular e mantém sua forma.' },
-            'retina': { title: 'Retina', text: 'Camada sensível à luz que capta a imagem e a envia ao cérebro.' },
-            'coroide': { title: 'Coroide', text: 'Camada vascular que nutre a retina e absorve o excesso de luz.' },
-            'esclera': { title: 'Esclera', text: 'Camada externa branca, resistente e protetora do olho.' },
-            'nervo-optico': { title: 'Nervo óptico', text: 'Transmite os impulsos nervosos visuais do olho para o cérebro.' },
-            'fovea': { title: 'Fóvea', text: 'Pequena depressão na retina com máxima acuidade visual (visão detalhada).' },
-            'musculos-ciliares': { title: 'Músculos ciliares', text: 'Controlam a acomodação (foco) do cristalino para perto ou longe.' }
-        };
-
-        const structureInfo = document.querySelector('.structure-info');
-        const infoTitle = structureInfo.querySelector('h3');
-        const infoText = structureInfo.querySelector('p');
-
-        // Interatividade com as estruturas
-        document.querySelectorAll('.structure-path, .legend-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const structure = this.getAttribute('data-structure');
-                const data = structures[structure];
-                if (data) {
-                    infoTitle.textContent = data.title;
-                    infoText.textContent = data.text;
-                    structureInfo.style.display = 'block';
-                    
-                    const rect = this.getBoundingClientRect();
-                    const tooltipWidth = 300; // Largura máxima aproximada do tooltip
-                    const spaceOnRight = window.innerWidth - rect.right;
-                    
-                    // LÓGICA INTELIGENTE: Se não houver espaço à direita, abre à esquerda
-                    if (spaceOnRight < tooltipWidth + 20) {
-                        structureInfo.style.left = (rect.left - tooltipWidth - 20) + 'px';
-                    } else {
-                        structureInfo.style.left = (rect.right + 20) + 'px';
-                    }
-                    
-                    structureInfo.style.top = rect.top + 'px';
-                }
-            });
-
-            item.addEventListener('mouseleave', function() {
-                structureInfo.style.display = 'none';
-            });
-        });
-
-        // Animação dos raios de luz
-        const lightRays = document.querySelectorAll('.light-ray');
-        lightRays.forEach((ray, index) => {
-            ray.style.animationDelay = `${index * 0.2}s`;
-        });
-
-        // Responsividade: esconder tooltip ao redimensionar a tela
-        window.addEventListener('resize', function() {
-            structureInfo.style.display = 'none';
-        });
-
-        // Efeito de destaque ao clicar
-        document.querySelectorAll('.structure-path').forEach(element => {
-            element.addEventListener('click', function() {
-                const structure = this.getAttribute('data-structure');
-                console.log(`Estrutura selecionada: ${structure}`);
-                
-                this.style.filter = 'brightness(1.2)';
-                setTimeout(() => {
-                    this.style.filter = 'none';
-                }, 300);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
