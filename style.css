@@ -1,547 +1,201 @@
-/* ============================================
-   ÓPTICA DA VISÃO – ESTRUTURA DO OLHO HUMANO
-   Arquivo: style.css
-   ============================================ */
-
-/* ============================================
-   VARIÁVEIS CSS (Custom Properties)
-   ============================================ */
-:root {
-    /* Cores primárias */
-    --cor-primaria: #667eea;
-    --cor-secundaria: #764ba2;
-    --cor-destaque: #f39c12;
-    --cor-destaque-hover: #e67e22;
-
-    /* Cores de texto */
-    --texto-principal: #212529;
-    --texto-secundario: #495057;
-    --texto-claro: #ffffff;
-    --texto-muted: #6c757d;
-
-    /* Cores de fundo */
-    --fundo-pagina: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    --fundo-card: #ffffff;
-    --fundo-secao: #f8f9fa;
-    --fundo-borda: #e9ecef;
-
-    /* Cores das estruturas do olho */
-    --cor-cornea: #b8d4e3;
-    --cor-iris: #4a7c9b;
-    --cor-pupila: #1a1a1a;
-    --cor-cristalino: #7fb3d3;
-    --cor-humor-aquoso: #e8f4f8;
-    --cor-humor-vitreo: #fff5e6;
-    --cor-retina: #e8b896;
-    --cor-coroide: #c9956b;
-    --cor-esclera: #d4a574;
-    --cor-nervo-optico: #f39c12;
-    --cor-fovea: #d4896a;
-    --cor-musculos: #8b6f47;
-
-    /* Sombras */
-    --sombra-suave: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --sombra-media: 0 10px 30px rgba(0, 0, 0, 0.15);
-    --sombra-forte: 0 20px 60px rgba(0, 0, 0, 0.2);
-    --sombra-tooltip: 0 10px 40px rgba(0, 0, 0, 0.2);
-
-    /* Bordas */
-    --borda-radius-sm: 8px;
-    --borda-radius-md: 12px;
-    --borda-radius-lg: 15px;
-    --borda-radius-xl: 20px;
-
-    /* Espaçamentos */
-    --espacamento-xs: 10px;
-    --espacamento-sm: 15px;
-    --espacamento-md: 20px;
-    --espacamento-lg: 30px;
-    --espacamento-xl: 40px;
-
-    /* Transições */
-    --transicao-rapida: 0.2s ease;
-    --transicao-normal: 0.3s ease;
-    --transicao-lenta: 0.5s ease;
-}
-
-/* ============================================
-   RESET E ESTILOS BASE
-   ============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--fundo-pagina);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
-    padding: var(--espacamento-md);
-    color: var(--texto-principal);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
-/* ============================================
-   CONTAINER PRINCIPAL
-   ============================================ */
 .container {
     max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
-    background: var(--fundo-card);
-    border-radius: var(--borda-radius-xl);
-    box-shadow: var(--sombra-forte);
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     overflow: hidden;
 }
 
-/* ============================================
-   HEADER
-   ============================================ */
 header {
-    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
-    color: var(--texto-claro);
-    padding: var(--espacamento-xl);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 40px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: headerGlow 8s ease-in-out infinite;
-}
-
-@keyframes headerGlow {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(10%, 10%); }
 }
 
 header h1 {
-    font-size: 2.5em;
-    margin-bottom: var(--espacamento-xs);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1;
-    letter-spacing: 1px;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 header p {
-    font-size: 1.15em;
-    opacity: 0.95;
-    position: relative;
-    z-index: 1;
-    font-weight: 300;
+    font-size: 1.1em;
+    opacity: 0.9;
 }
 
-/* ============================================
-   CONTEÚDO PRINCIPAL
-   ============================================ */
 .content {
-    padding: var(--espacamento-xl);
+    padding: 40px;
 }
 
 .main-diagram {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--espacamento-xl);
-    padding: var(--espacamento-md);
-    background: var(--fundo-secao);
-    border-radius: var(--borda-radius-lg);
-    border: 1px solid var(--fundo-borda);
+    margin-bottom: 40px;
 }
 
 .eye-svg {
     max-width: 100%;
     height: auto;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
-    transition: transform var(--transicao-normal);
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
 }
 
-.eye-svg:hover {
-    transform: scale(1.02);
-}
-
-/* ============================================
-   DIAGRAMA DE LUZ
-   ============================================ */
 .light-diagram {
-    background: var(--fundo-secao);
-    border-radius: var(--borda-radius-lg);
-    padding: var(--espacamento-lg);
-    margin-top: var(--espacamento-lg);
-    border: 2px solid var(--fundo-borda);
-    position: relative;
-}
-
-.light-diagram::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--cor-destaque), var(--cor-primaria));
-    border-radius: var(--borda-radius-lg) var(--borda-radius-lg) 0 0;
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    border: 2px solid #e9ecef;
 }
 
 .light-diagram h2 {
-    color: var(--texto-secundario);
-    margin-bottom: var(--espacamento-md);
+    color: #495057;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 1.6em;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: 1.5em;
 }
 
 .light-svg {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto;
 }
 
-/* ============================================
-   LEGENDAS
-   ============================================ */
+.structure-info {
+    position: fixed;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    max-width: 90vw;
+    width: max-content;
+    z-index: 1000;
+    display: none;
+    border-left: 4px solid #667eea;
+    word-wrap: break-word;
+}
+
+.structure-info h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.structure-info p {
+    color: #495057;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
 .legend {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--espacamento-sm);
-    margin-top: var(--espacamento-lg);
-    padding: var(--espacamento-md);
-    background: var(--fundo-secao);
-    border-radius: var(--borda-radius-lg);
-    border: 1px solid var(--fundo-borda);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    padding: var(--espacamento-sm);
-    background: var(--fundo-card);
-    border-radius: var(--borda-radius-sm);
-    transition: transform var(--transicao-normal), box-shadow var(--transicao-normal);
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    border: 1px solid transparent;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .legend-item:hover {
     transform: translateY(-3px);
-    box-shadow: var(--sombra-suave);
-    border-color: var(--cor-primaria);
-}
-
-.legend-item:active {
-    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .legend-color {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    margin-right: var(--espacamento-sm);
+    margin-right: 12px;
     flex-shrink: 0;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .legend-text {
     font-size: 0.95em;
-    color: var(--texto-secundario);
-    line-height: 1.5;
+    color: #495057;
 }
 
 .legend-text strong {
-    color: var(--texto-principal);
-    font-weight: 700;
+    color: #212529;
 }
 
-/* ============================================
-   TOOLTIP DE INFORMAÇÕES
-   ============================================ */
-.structure-info {
-    position: fixed;
-    background: var(--fundo-card);
-    border-radius: var(--borda-radius-md);
-    padding: var(--espacamento-md);
-    box-shadow: var(--sombra-tooltip);
-    max-width: 320px;
-    z-index: 1000;
-    display: none;
-    border-left: 5px solid var(--cor-primaria);
-    animation: tooltipFadeIn 0.3s ease;
-    pointer-events: none;
-}
-
-@keyframes tooltipFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.structure-info h3 {
-    color: var(--cor-primaria);
-    margin-bottom: var(--espacamento-xs);
-    font-size: 1.3em;
-    font-weight: 700;
-}
-
-.structure-info p {
-    color: var(--texto-secundario);
-    line-height: 1.6;
-    font-size: 0.95em;
-}
-
-/* ============================================
-   ELEMENTOS SVG
-   ============================================ */
 .label-line {
-    stroke: var(--texto-secundario);
+    stroke: #495057;
     stroke-width: 1.5;
     fill: none;
-    stroke-dasharray: 4, 2;
 }
 
 .label-text {
     font-family: 'Segoe UI', sans-serif;
     font-size: 14px;
-    fill: var(--texto-principal);
+    fill: #212529;
     font-weight: 600;
 }
 
 .structure-path {
     cursor: pointer;
-    transition: opacity var(--transicao-normal), filter var(--transicao-normal);
+    transition: opacity 0.3s ease;
 }
 
 .structure-path:hover {
-    opacity: 0.85;
-    filter: brightness(1.1);
-}
-
-.structure-path.active {
-    filter: brightness(1.2);
-    stroke-width: 4;
+    opacity: 0.8;
 }
 
 .light-ray {
     animation: lightPulse 2s ease-in-out infinite;
-    stroke-linecap: round;
 }
 
 @keyframes lightPulse {
-    0%, 100% {
-        opacity: 0.6;
-        stroke-width: 2;
-    }
-    50% {
-        opacity: 1;
-        stroke-width: 3.5;
-    }
-}
-
-/* ============================================
-   ANIMAÇÕES GERAIS
-   ============================================ */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container {
-    animation: fadeIn 0.8s ease;
-}
-
-/* ============================================
-   RESPONSIVIDADE
-   ============================================ */
-@media (max-width: 1024px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    .content {
-        padding: var(--espacamento-lg);
-    }
-
-    .legend {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
 }
 
 @media (max-width: 768px) {
     body {
-        padding: var(--espacamento-xs);
+        padding: 10px;
     }
-
     header {
-        padding: var(--espacamento-lg);
+        padding: 20px;
     }
-
     header h1 {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
-
-    header p {
-        font-size: 1em;
-    }
-
     .content {
-        padding: var(--espacamento-md);
+        padding: 15px;
     }
-
-    .main-diagram {
-        padding: var(--espacamento-sm);
-    }
-
-    .light-diagram {
-        padding: var(--espacamento-md);
-    }
-
-    .light-diagram h2 {
-        font-size: 1.3em;
-    }
-
     .legend {
         grid-template-columns: 1fr;
-        gap: var(--espacamento-xs);
+        padding: 15px;
     }
-
-    .legend-item {
-        padding: var(--espacamento-xs);
-    }
-
-    .structure-info {
-        max-width: 280px;
-        padding: var(--espacamento-sm);
-    }
-
     .label-text {
         font-size: 12px;
     }
 }
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.3em;
-    }
-
-    .content {
-        padding: var(--espacamento-sm);
-    }
-
-    .legend-text {
-        font-size: 0.85em;
-    }
-}
-
-/* ============================================
-   ACESSIBILIDADE
-   ============================================ */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    .light-ray {
-        animation: none;
-        opacity: 1;
-    }
-
-    .container {
-        animation: none;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --fundo-pagina: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        --fundo-card: #0f3460;
-        --fundo-secao: #1a1a2e;
-        --fundo-borda: #533483;
-        --texto-principal: #eaeaea;
-        --texto-secundario: #b8b8b8;
-    }
-
-    .structure-info {
-        background: #0f3460;
-        border-color: var(--cor-primaria);
-    }
-
-    .legend-item {
-        background: #1a1a2e;
-    }
-
-    .label-line {
-        stroke: #b8b8b8;
-    }
-
-    .label-text {
-        fill: #eaeaea;
-    }
-}
-
-/* ============================================
-   FOCO E NAVEGAÇÃO POR TECLADO
-   ============================================ */
-.legend-item:focus,
-.structure-path:focus {
-    outline: 3px solid var(--cor-primaria);
-    outline-offset: 2px;
-}
-
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-@media print {
-    body {
-        background: white;
-        padding: 0;
-    }
-
-    .container {
-        box-shadow: none;
-        max-width: 100%;
-    }
-
-    header {
-        background: var(--cor-primaria) !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    .structure-info {
-        display: none !important;
-    }
-
-    .light-ray {
-        animation: none;
-    }
-                                      }
