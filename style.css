@@ -567,3 +567,15 @@ body {
     white-space: nowrap;
     border-width: 0;
 }
+/* Garante que o conteúdo apareça */
+.info-content {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.info-description,
+.info-function {
+    display: block !important;
+    margin-top: 20px;
+}
