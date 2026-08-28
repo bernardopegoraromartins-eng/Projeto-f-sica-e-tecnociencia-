@@ -180,3 +180,4 @@ window.addEventListener('load', function() {
     
     console.log('✅ Sistema inicializado com sucesso!');
 });
+<script src="script.js"></script>
