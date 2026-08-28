@@ -1,4 +1,4 @@
-// Banco de dados completo das estruturas do olho
+// Banco de dados das estruturas do olho
 const structuresData = {
     'cornea': {
         title: 'Córnea',
@@ -90,19 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="info-content">
                 <h2>${data.title}</h2>
                 <p class="description">${data.description}</p>
-                <div class="function">
-                    <strong> Função Principal:</strong>
-                    ${data.function}
+                <div class="function-box">
+                    <strong>🎯 Função Principal:</strong>
+                    <p>${data.function}</p>
                 </div>
             </div>
         `;
         
-        // Atualiza o display com animação
-        infoDisplay.style.animation = 'none';
-        setTimeout(() => {
-            infoDisplay.innerHTML = contentHTML;
-            infoDisplay.style.animation = 'slideIn 0.3s ease';
-        }, 10);
+        // Atualiza o display
+        infoDisplay.innerHTML = contentHTML;
         
         // Scroll suave até a seção de informações (em mobile)
         if (window.innerWidth <= 768) {
@@ -117,21 +113,4 @@ document.addEventListener('DOMContentLoaded', function() {
             showPartInfo(partKey);
         });
     });
-    
-    // Mostra mensagem inicial após 2 segundos (opcional)
-    setTimeout(() => {
-        if (infoDisplay.querySelector('.info-placeholder')) {
-            infoDisplay.style.animation = 'pulse 2s';
-        }
-    }, 2000);
 });
-
-// Adiciona animação de pulse no CSS dinamicamente
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes pulse {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
-        50% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
-    }
-`;
-document.head.appendChild(style);
