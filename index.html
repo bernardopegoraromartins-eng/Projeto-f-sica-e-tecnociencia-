@@ -42,49 +42,39 @@
                     <circle cx="920" cy="400" r="15" fill="#ffd700" opacity="0.8"/>
                     <path d="M 960 380 L 1100 360 L 1100 440 L 960 420 Z" fill="#f5deb3" stroke="#d2b48c" stroke-width="2"/>
 
-                    <!-- Linhas e textos -->
                     <line x1="150" y1="280" x2="80" y2="240" stroke="#495057" stroke-width="1.5"/>
                     <text x="50" y="240" font-family="Segoe UI" font-size="14" fill="#212529">Córnea</text>
-                    
                     <line x1="200" y1="300" x2="120" y2="210" stroke="#495057" stroke-width="1.5"/>
                     <text x="120" y="210" font-family="Segoe UI" font-size="14" fill="#212529">Íris</text>
-                    
                     <line x1="220" y1="400" x2="80" y2="310" stroke="#495057" stroke-width="1.5"/>
                     <text x="80" y="310" font-family="Segoe UI" font-size="14" fill="#212529">Pupila</text>
-                    
                     <line x1="390" y1="400" x2="150" y2="210" stroke="#495057" stroke-width="1.5"/>
                     <text x="150" y="210" font-family="Segoe UI" font-size="14" fill="#212529">Cristalino</text>
-                    
                     <line x1="300" y1="400" x2="80" y2="540" stroke="#495057" stroke-width="1.5"/>
                     <text x="80" y="540" font-family="Segoe UI" font-size="14" fill="#212529">Humor aquoso</text>
-                    
                     <line x1="600" y1="400" x2="600" y2="650" stroke="#495057" stroke-width="1.5"/>
                     <text x="600" y="680" font-family="Segoe UI" font-size="14" fill="#212529" text-anchor="middle">Humor vítreo</text>
-                    
                     <line x1="900" y1="300" x2="900" y2="150" stroke="#495057" stroke-width="1.5"/>
                     <text x="900" y="130" font-family="Segoe UI" font-size="14" fill="#212529" text-anchor="middle">Retina</text>
-                    
                     <line x1="920" y1="400" x2="1050" y2="300" stroke="#495057" stroke-width="1.5"/>
                     <text x="1050" y="290" font-family="Segoe UI" font-size="14" fill="#212529">Fóvea</text>
-                    
                     <line x1="1000" y1="400" x2="1100" y2="320" stroke="#495057" stroke-width="1.5"/>
                     <text x="1100" y="310" font-family="Segoe UI" font-size="14" fill="#212529">Nervo óptico</text>
-                    
                     <line x1="400" y1="280" x2="400" y2="150" stroke="#495057" stroke-width="1.5"/>
                     <text x="400" y="130" font-family="Segoe UI" font-size="14" fill="#212529" text-anchor="middle">Músculos ciliares</text>
                 </svg>
             </div>
 
-            <!-- Seção de Informações Detalhadas -->
+            <!-- Área de Informações (aparece ao clicar) -->
             <div class="info-display" id="infoDisplay">
                 <div class="info-placeholder">
                     <p>👆 Clique em uma das partes abaixo para ver a descrição detalhada</p>
                 </div>
             </div>
 
-            <!-- Legenda Interativa -->
+            <!-- Legenda Interativa (APENAS UMA) -->
             <div class="legend">
-                <h3 style="grid-column: 1/-1; margin-bottom: 10px; color: #667eea;">Clique para ver detalhes:</h3>
+                <h3>Clique para ver detalhes:</h3>
                 
                 <div class="legend-item" data-part="cornea">
                     <div class="legend-color" style="background: #b8d4e3;"></div>
@@ -103,6 +93,55 @@
                 
                 <div class="legend-item" data-part="cristalino">
                     <div class="legend-color" style="background: #e8f4f8;"></div>
+                    <span>Cristalino</span>
+                </div>
+                
+                <div class="legend-item" data-part="humor-aquoso">
+                    <div class="legend-color" style="background: #e0f0ff;"></div>
+                    <span>Humor aquoso</span>
+                </div>
+                
+                <div class="legend-item" data-part="humor-vitreo">
+                    <div class="legend-color" style="background: #f0f8ff;"></div>
+                    <span>Humor vítreo</span>
+                </div>
+                
+                <div class="legend-item" data-part="retina">
+                    <div class="legend-color" style="background: #8b4513;"></div>
+                    <span>Retina</span>
+                </div>
+                
+                <div class="legend-item" data-part="coroide">
+                    <div class="legend-color" style="background: #2c1810;"></div>
+                    <span>Coroide</span>
+                </div>
+                
+                <div class="legend-item" data-part="esclera">
+                    <div class="legend-color" style="background: #f4e4c1;"></div>
+                    <span>Esclera</span>
+                </div>
+                
+                <div class="legend-item" data-part="nervo-optico">
+                    <div class="legend-color" style="background: #f5deb3;"></div>
+                    <span>Nervo óptico</span>
+                </div>
+                
+                <div class="legend-item" data-part="fovea">
+                    <div class="legend-color" style="background: #ffd700;"></div>
+                    <span>Fóvea</span>
+                </div>
+                
+                <div class="legend-item" data-part="musculos-ciliares">
+                    <div class="legend-color" style="background: #8b4513;"></div>
+                    <span>M. ciliares</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>                    <div class="legend-color" style="background: #e8f4f8;"></div>
                     <span>Cristalino</span>
                 </div>
                 
